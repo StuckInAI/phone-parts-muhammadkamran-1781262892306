@@ -1,31 +1,37 @@
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-slate-300">
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <footer className="bg-gray-900 text-gray-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">P</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                <span className="text-white font-bold">PP</span>
               </div>
-              <span className="font-bold text-xl text-white">
-                Parts<span className="text-brand">Pro</span>
-              </span>
+              <div>
+                <div className="font-bold text-lg text-white">PartsPro</div>
+                <div className="text-xs text-gray-400 font-medium">Premium Parts</div>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed mb-5">
-              Your trusted source for premium mobile phone parts. Quality guaranteed, fast shipping, and expert support for repair professionals and DIY enthusiasts.
+            <p className="text-sm leading-relaxed mb-6 text-gray-400">
+              Trusted by 50,000+ professionals. Quality parts, fast shipping, and expert support.
             </p>
-            <div className="flex items-center gap-3">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
+            <div className="flex items-center gap-4">
+              {[
+                { icon: Facebook, label: 'Facebook' },
+                { icon: Twitter, label: 'Twitter' },
+                { icon: Linkedin, label: 'LinkedIn' },
+              ].map(({ icon: Icon, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href="#"
-                  className="w-8 h-8 rounded-lg bg-slate-700 hover:bg-brand flex items-center justify-center transition-colors"
+                  aria-label={label}
+                  className="w-9 h-9 rounded-lg bg-gray-800 hover:bg-blue-600 flex items-center justify-center transition-colors"
                 >
-                  <Icon size={14} />
+                  <Icon size={16} />
                 </a>
               ))}
             </div>
@@ -33,12 +39,11 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Shop</h3>
-            <ul className="space-y-2 text-sm">
-              {['Screens & Displays', 'Batteries', 'Camera Modules', 'Charging Ports', 'Back Covers', 'Repair Tools', 'New Arrivals', 'Sale Items'].map((item) => (
+            <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-wide">Shop</h3>
+            <ul className="space-y-3 text-sm">
+              {['All Products', 'Screens', 'Batteries', 'Cameras', 'Chargers', 'Tools'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="hover:text-brand transition-colors flex items-center gap-1 group">
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     {item}
                   </a>
                 </li>
@@ -48,12 +53,11 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Support</h3>
-            <ul className="space-y-2 text-sm">
-              {['Repair Guides', 'Compatibility Checker', 'Warranty Policy', 'Returns & Refunds', 'Shipping Info', 'Track Your Order', 'Wholesale Account', 'Contact Us'].map((item) => (
+            <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-wide">Support</h3>
+            <ul className="space-y-3 text-sm">
+              {['Help Center', 'Returns', 'Warranty', 'Shipping', 'Track Order', 'Contact'].map((item) => (
                 <li key={item}>
-                  <a href="#" className="hover:text-brand transition-colors flex items-center gap-1 group">
-                    <ArrowRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <a href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
                     {item}
                   </a>
                 </li>
@@ -63,45 +67,35 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm mb-5">
-              <li className="flex items-start gap-2">
-                <Phone size={14} className="mt-0.5 text-brand flex-shrink-0" />
-                <span>1-800-PARTS-PRO<br />Mon–Fri 9am–6pm EST</span>
+            <h3 className="font-semibold text-white mb-5 text-sm uppercase tracking-wide">Contact</h3>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <Phone size={16} className="mt-0.5 text-blue-400 flex-shrink-0" />
+                <div>
+                  <div className="text-gray-300">1-800-PARTS-PRO</div>
+                  <div className="text-gray-500 text-xs">Mon–Fri 9am–6pm EST</div>
+                </div>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail size={14} className="mt-0.5 text-brand flex-shrink-0" />
-                <span>support@partspro.com</span>
+              <li className="flex items-start gap-3">
+                <Mail size={16} className="mt-0.5 text-blue-400 flex-shrink-0" />
+                <span className="text-gray-300">support@partspro.com</span>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={14} className="mt-0.5 text-brand flex-shrink-0" />
-                <span>123 Tech Avenue<br />San Jose, CA 95110</span>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="mt-0.5 text-blue-400 flex-shrink-0" />
+                <div className="text-gray-300 text-sm">123 Tech Avenue<br />San Jose, CA 95110</div>
               </li>
             </ul>
-            <div>
-              <p className="text-xs font-semibold text-white mb-2">Newsletter</p>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 text-xs px-3 py-2 bg-slate-700 border border-slate-600 rounded-l-lg focus:outline-none focus:border-brand text-white placeholder:text-slate-400"
-                />
-                <button className="bg-brand hover:bg-brand-dark text-white px-3 py-2 rounded-r-lg transition-colors">
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+      <div className="border-t border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <span>© 2025 PartsPro. All rights reserved.</span>
-          <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-slate-300 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-slate-300 transition-colors">Cookie Policy</a>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-gray-300 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-gray-300 transition-colors">Terms</a>
+            <a href="#" className="hover:text-gray-300 transition-colors">Cookies</a>
           </div>
         </div>
       </div>

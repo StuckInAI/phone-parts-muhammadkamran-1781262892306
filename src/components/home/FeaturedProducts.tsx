@@ -25,22 +25,22 @@ export default function FeaturedProducts({ products, onAddToCart }: FeaturedProd
     : products.filter((p) => p.category === filterMap[activeFilter]);
 
   return (
-    <section id="shop" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <section id="shop" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-dark mb-2">Featured Parts</h2>
-            <p className="text-slate-500">Best-selling components trusted by professionals</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3">Featured Parts</h2>
+            <p className="text-lg text-gray-600 font-light">Best-selling components trusted by professionals</p>
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {FILTERS.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeFilter === filter
-                    ? 'bg-brand text-white'
-                    : 'bg-slate-100 text-slate-600 hover:bg-brand-light hover:text-brand'
+                    ? 'bg-blue-600 text-white shadow-lg hover:shadow-xl'
+                    : 'bg-white text-gray-700 border border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                 }`}
               >
                 {filter}
@@ -50,19 +50,19 @@ export default function FeaturedProducts({ products, onAddToCart }: FeaturedProd
         </div>
 
         {filtered.length === 0 ? (
-          <div className="text-center py-20 text-slate-400">No products in this category yet.</div>
+          <div className="text-center py-20 text-gray-400">No products in this category yet.</div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {filtered.map((product) => (
               <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
             ))}
           </div>
         )}
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-14">
           <a
             href="#"
-            className="inline-flex items-center gap-2 border-2 border-brand text-brand hover:bg-brand hover:text-white px-8 py-3 rounded-xl font-semibold transition-colors"
+            className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all active:scale-95"
           >
             View All Products
           </a>

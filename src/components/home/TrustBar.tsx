@@ -35,16 +35,16 @@ const features = [
 
 export default function TrustBar() {
   return (
-    <section className="py-12 bg-white border-y border-slate-100">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+    <section className="py-16 bg-gray-50 border-y border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
           {features.map(({ icon: Icon, title, description }) => (
             <div key={title} className="flex flex-col items-center text-center">
-              <div className="w-12 h-12 bg-brand-light rounded-xl flex items-center justify-center mb-3">
-                <Icon size={20} className="text-brand" />
+              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group hover:bg-blue-100 transition-colors">
+                <Icon size={22} className="text-blue-600" />
               </div>
-              <h4 className="text-sm font-semibold text-dark mb-1">{title}</h4>
-              <p className="text-xs text-slate-400 leading-snug">{description}</p>
+              <h4 className="text-sm font-semibold text-gray-900 mb-2">{title}</h4>
+              <p className="text-xs text-gray-500 leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
